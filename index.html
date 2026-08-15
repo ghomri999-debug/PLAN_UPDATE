@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- App CSS (Loads from root or css/) -->
-    <link rel="stylesheet" href="app.css" onerror="this.onerror=null;this.href='css/app.css';">
+    <!-- App CSS (Loads from root or css/ with cache-busting v3) -->
+    <link rel="stylesheet" href="app.css?v=3.0" onerror="this.onerror=null;this.href='css/app.css?v=3.0';">
 </head>
 <body>
 
@@ -78,8 +78,7 @@
                     
                     <div class="filter-chips-group">
                         <button class="filter-chip active" data-status="all">All</button>
-                        <button class="filter-chip" data-status="receptionne">✅ Accepted</button>
-                        <button class="filter-chip" data-status="coule">💧 Poured</button>
+                        <button class="filter-chip" data-status="receptionne">✅ Accepted / Poured</button>
                         <button class="filter-chip" data-status="en_attente">⏳ Pending / Ongoing</button>
                     </div>
 
@@ -141,11 +140,7 @@
                 <span class="filter-label">Status Legend :</span>
                 <div class="legend-item">
                     <span class="legend-color receptionne"></span>
-                    <span>Inspected / QA-QC Accepted</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color coule"></span>
-                    <span>Poured</span>
+                    <span>Accepted / Poured</span>
                 </div>
                 <div class="legend-item">
                     <span class="legend-color en_attente"></span>
@@ -193,7 +188,6 @@
                                 <span id="kpi-blinding-pct" class="kpi-value">0%</span>
                             </div>
                             <div class="progress-track-multi">
-                                <div id="kpi-blinding-poured-bar" class="progress-bar-fill poured" style="width: 0%;"></div>
                                 <div id="kpi-blinding-progress-bar" class="progress-bar-fill accepted" style="width: 0%;"></div>
                             </div>
                             <div id="kpi-blinding-counts" class="kpi-counts"></div>
@@ -210,7 +204,6 @@
                                 <span id="kpi-footing-pct" class="kpi-value">0%</span>
                             </div>
                             <div class="progress-track-multi">
-                                <div id="kpi-footing-poured-bar" class="progress-bar-fill poured" style="width: 0%;"></div>
                                 <div id="kpi-footing-progress-bar" class="progress-bar-fill accepted" style="width: 0%;"></div>
                             </div>
                             <div id="kpi-footing-counts" class="kpi-counts"></div>
@@ -282,8 +275,7 @@
                         <div class="form-group">
                             <label>3. New Status :</label>
                             <select id="batch-status" class="form-select">
-                                <option value="receptionne">✅ Inspected / QA-QC Accepted</option>
-                                <option value="coule">💧 Poured</option>
+                                <option value="receptionne">✅ Accepted / Poured</option>
                                 <option value="en_attente">⏳ Pending / In Progress</option>
                             </select>
                         </div>
@@ -355,12 +347,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
-    <!-- Application Modules -->
-    <script src="firebase-config.js"></script>
-    <script src="auth.js"></script>
-    <script src="data.js"></script>
-    <script src="stateManager.js"></script>
-    <script src="canvas2d.js"></script>
-    <script src="app.js"></script>
+    <!-- Application Modules (v3.0) -->
+    <script src="firebase-config.js?v=3.0"></script>
+    <script src="auth.js?v=3.0"></script>
+    <script src="data.js?v=3.0"></script>
+    <script src="stateManager.js?v=3.0"></script>
+    <script src="canvas2d.js?v=3.0"></script>
+    <script src="app.js?v=3.0"></script>
 </body>
 </html>
