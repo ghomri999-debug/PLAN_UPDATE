@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- App CSS (Supports both root app.css and css/app.css) -->
+    <!-- App CSS (Loads from root or css/) -->
     <link rel="stylesheet" href="app.css" onerror="this.onerror=null;this.href='css/app.css';">
 </head>
 <body>
@@ -323,7 +323,7 @@
 
             <div id="login-error" class="login-error-banner"></div>
 
-            <form id="login-form" style="display: flex; flex-direction: column; gap: 12px;">
+            <form id="login-form" action="javascript:void(0);" onsubmit="return false;" style="display: flex; flex-direction: column; gap: 12px;">
                 <div class="form-group">
                     <label>Email Address :</label>
                     <input type="email" id="login-email" class="form-input" placeholder="e.g. viewer@gcb.dz" required>
@@ -355,34 +355,12 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
-    <!-- Smart Script Loader (Supports both flat root files and js/ subfolder) -->
-    <script>
-        function loadScript(srcRoot, srcFallback, next) {
-            const s = document.createElement('script');
-            s.src = srcRoot;
-            s.onload = next;
-            s.onerror = function() {
-                const s2 = document.createElement('script');
-                s2.src = srcFallback;
-                s2.onload = next;
-                document.body.appendChild(s2);
-            };
-            document.body.appendChild(s);
-        }
-
-        loadScript('firebase-config.js', 'js/firebase-config.js', function() {
-            loadScript('auth.js', 'js/auth.js', function() {
-                loadScript('data.js', 'js/data.js', function() {
-                    loadScript('stateManager.js', 'js/stateManager.js', function() {
-                        loadScript('canvas2d.js', 'js/canvas2d.js', function() {
-                            loadScript('app.js', 'js/app.js', function() {
-                                console.log('All modules loaded successfully!');
-                            });
-                        });
-                    });
-                });
-            });
-        });
-    </script>
+    <!-- Application Modules -->
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="data.js"></script>
+    <script src="stateManager.js"></script>
+    <script src="canvas2d.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
